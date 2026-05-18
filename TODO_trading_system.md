@@ -16,22 +16,22 @@
 - [ ] 🔴 Signal evaluation contract §6.2 reviewed & signed off (before M5)
 - [ ] 🔴 Pine whitelist scope §3.2 agreed (before M4)
 - [ ] Confirm `fees_bps=10` / `slippage_bps=5` defaults (Crypto vs Stocks, §A.6)
-- [ ] Repo skeleton + branch protection + CHANGELOG.md created
+- [x] Repo skeleton + branch protection + CHANGELOG.md created
 
 ## M1 — Infra + Chart (4d + 1d)
 
-- [ ] `docker-compose.yml` with backend, frontend, postgres, redis
-- [ ] FastAPI skeleton (`main.py`, `config.py`, `db.py`)
-- [ ] Alembic baseline migration (indicators, strategies, backtest_results, benchmark_symbols, candle_cache — §6.4)
-- [ ] `LOCAL_API_TOKEN` auto-generated on first boot (§8.1, §9.3)
-- [ ] `auth.py` — Bearer token middleware + Origin check (localhost/127.0.0.1)
-- [ ] `core/time.py` UTC helpers (ISO 8601 `Z`, §7)
-- [ ] Binance candle service (`services/market/binance.py`) + rate-limit/retry
-- [ ] `GET /api/market/candles` endpoint
-- [ ] Vite + React + TS + Tailwind + shadcn/ui scaffold
-- [ ] ChartPanel renders BTCUSDT 1h 200 candles (lightweight-charts ≥4.1)
-- [ ] 🔴 **Docker Socket Mount PoC**: sandbox container runs Python, returns stdout < 30s
-- [ ] **M1 DoD**: `docker-compose up` boots all; `/health` 200; chart shows; PoC passes
+- [x] `docker-compose.yml` with backend, frontend, postgres, redis
+- [x] FastAPI skeleton (`main.py`, `config.py`, `db.py`)
+- [x] Alembic baseline migration (indicators, strategies, backtest_results, benchmark_symbols, candle_cache — §6.4)
+- [x] `LOCAL_API_TOKEN` auto-generated on first boot (§8.1, §9.3)
+- [x] `auth.py` — Bearer token middleware + Origin check (localhost/127.0.0.1)
+- [x] `core/time.py` UTC helpers (ISO 8601 `Z`, §7)
+- [x] Binance candle service (`services/market/binance.py`) + rate-limit/retry
+- [x] `GET /api/market/candles` endpoint
+- [x] Vite + React + TS + Tailwind scaffold (shadcn/ui deferred to M2 UI work)
+- [x] ChartPanel renders BTCUSDT 1h candles (lightweight-charts ≥4.1)
+- [~] 🔴 **Docker Socket Mount PoC**: spawn code written (`services/indicators/sandbox.py`); needs Docker runtime to verify <30s end-to-end
+- [~] **M1 DoD**: code complete; runtime verification (`docker-compose up`, `/health` 200, chart, PoC) pending a Docker host
 
 ## M2 — Yahoo + Builtin Indicators + Availability Matrix (3d + 1d)
 
