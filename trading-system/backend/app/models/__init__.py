@@ -83,6 +83,19 @@ class BenchmarkSymbol(Base):
     )
 
 
+class SandboxLog(Base):
+    __tablename__ = "sandbox_log"
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    indicator_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), nullable=True)
+    code_hash: Mapped[str] = mapped_column(Text, nullable=False)
+    duration_ms: Mapped[int] = mapped_column(Integer, nullable=False)
+    exit_code: Mapped[int] = mapped_column(Integer, nullable=False)
+    error: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+
+
 class CandleCache(Base):
     __tablename__ = "candle_cache"
     symbol: Mapped[str] = mapped_column(Text, primary_key=True)
